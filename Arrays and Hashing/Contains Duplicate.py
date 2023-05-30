@@ -20,6 +20,5 @@ class Solution:
         for num in nums:
             if num in unique_list:
                 return True
-            else:
-                unique_list.add(num)
+            unique_list.add(num)
         return False
