@@ -15,17 +15,19 @@
  * - No other data structures of significant size are used, leading to an overall space complexity of O(n).
  */
 function longestConsecutive(nums: number[]): number {
-	const numSet = new Set<number>(nums);
-	let longest = 0;
-	for (const num of numSet) {
-		// Check if it's the start of a sequence
-		if (!numSet.has(num - 1)) {
-			let length = 1;
-			while (numSet.has(num + length)) {
-				length++;
-			}
-			longest = Math.max(length, longest);
-		}
-	}
-	return longest;
-}
+  const numSet = new Set<number>(nums); //remove duplicates
+  let longest = 0;
+  for(const num of numSet){
+      //find start of sequence
+      if(!numSet.has(num-1)){
+          let length = 1;
+          //increase length until sequence stops
+          while(numSet.has(num+length)){
+              length++
+          }
+          //update longest to the longest sequence
+          longest = Math.max(length, longest)
+      }
+  }
+  return longest;
+};
